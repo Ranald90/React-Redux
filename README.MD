@@ -2,6 +2,7 @@
 
 This repository accompanies my ReactJS / Redux - Basics YouTube Series.
 This is not mine, it's from YouTube channel - Academind. I only refactored and updated the code.
+This is stable version still without Readux.
 
 # Usage
 
