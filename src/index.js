@@ -31,21 +31,36 @@
 
 import { createStore } from 'redux';
 
+//Nasze dane, jeżeli innych nie mamy, inicjalizujące dane
+const initialState = {
+  result: 1,
+  lastValue: [],
+  userName: 'Karol'
+};
+
 //dostępne akcje które możemy wykonać
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD':
-      state = state + action.payload;
+      state = {
+        ...state,
+        result: state.result + action.payload,
+        lastValue: [...state.lastValue, action.payload]
+      };
       break;
     case 'SUBTRACT':
-      state = state - action.payload;
+      state = {
+        ...state,
+        result: state.result - action.payload,
+        lastValue: [...state.lastValue, action.payload]
+      };
       break;
   }
   return state;
 };
 
 //Tworzenie naszego store z danamymi
-const store = createStore(reducer, 1);
+const store = createStore(reducer);
 
 //Tutaj będą nasze aplikacje z reacta
 store.subscribe(() => {
